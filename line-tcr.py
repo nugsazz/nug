@@ -1988,12 +1988,6 @@ def bot(op):
                         ki.leaveGroup(msg.to)
                         kk.leaveGroup(msg.to)
                         kc.leaveGroup(msg.to)
-                        ks.leaveGroup(msg.to)
-                        ka.leaveGroup(msg.to)
-                        kb.leaveGroup(msg.to)
-                        ko.leaveGroup(msg.to)
-                        ke.leaveGroup(msg.to)
-                        ku.leaveGroup(msg.to)
                     except:
                         pass
                         
@@ -2510,9 +2504,9 @@ def autolike():
         if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
           try:    
             cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-            cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by line.me/ti/p/~satria_hk")
+            cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By Satria\n̶✍̶̶ե̶̶ҽ̶̶α̶̶ต̶ ̶ճ̶̶օ̶̶ե̶ ̶հ̶̶α̶̶ղ̶̶s̶̶k̶̶í̶̶l̶̶l̶̶s̶✈\nOPEN ORDER SIRI V10 & ADMIN/STAFF BOT PROTECT\n\nline.me/ti/p/~satria_hk\nline.me/ti/p/~satria_musyafircinta")
             kk.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-            kk.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by line.me/ti/p/~satria_hk")
+            kk.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By Satria\n̶✍̶̶ե̶̶ҽ̶̶α̶̶ต̶ ̶ճ̶̶օ̶̶ե̶ ̶հ̶̶α̶̶ղ̶̶s̶̶k̶̶í̶̶l̶̶l̶̶s̶✈\nOPEN ORDER SIRI V10 & ADMIN/STAFF BOT PROTECT\n\nline.me/ti/p/~satria_hk\nline.me/ti/p/~satria_musyafircinta")
             print "Like"
           except:
             pass
