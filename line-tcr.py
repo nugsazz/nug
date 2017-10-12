@@ -18,8 +18,8 @@ ki.login(qr=True)
 kk = LINETCR.LINE()
 kk.login(qr=True)
 
-#kc = LINETCR.LINE()
-#kc.login(qr=True)
+kc = LINETCR.LINE()
+kc.login(qr=True)
 
 #ks = LINETCR.LINE()
 #ks.login(qr=True)
@@ -1856,9 +1856,9 @@ def bot(op):
 
             elif msg.text == "Check":
                     cl.sendText(msg.to, "Check sider")
-                    #ki.sendText(msg.to, "Check sider")
-                    #kk.sendText(msg.to, "Check sider")
-                    #kc.sendText(msg.to, "Check sider")
+                    ki.sendText(msg.to, "Check sider")
+                    kk.sendText(msg.to, "Check sider")
+                    kc.sendText(msg.to, "Check sider")
                     try:
                         del wait2['readPoint'][msg.to]
                         del wait2['readMember'][msg.to]
@@ -1972,7 +1972,15 @@ def bot(op):
     #----------------------Fungsi Join Group Finish---------------#
 
     #-------------Fungsi Leave Group Start---------------#
-            elif msg.text in ["Pulang","Bye All"]:
+            elif msg.text in ["Papay"]:
+              if msg.from_ in admin:
+                if msg.toType == 2:
+                    ginfo = cl.getGroup(msg.to)
+                    try:
+                        cl.leaveGroup(msg.to)
+                    except:
+                        pass
+            elif msg.text in ["Pulang"]:
               if msg.from_ in admin:
                 if msg.toType == 2:
                     ginfo = cl.getGroup(msg.to)
@@ -1988,14 +1996,7 @@ def bot(op):
                         ku.leaveGroup(msg.to)
                     except:
                         pass
-            elif msg.text in ["Bye say1"]:
-              if msg.from_ in admin:
-                if msg.toType == 2:
-                    ginfo = cl.getGroup(msg.to)
-                    try:
-                        ki.leaveGroup(msg.to)
-                    except:
-                        pass
+                        
             elif msg.text in ["Bye say2"]:
               if msg.from_ in admin:
                 if msg.toType == 2:
@@ -2091,7 +2092,7 @@ def bot(op):
               if msg.from_ in Bots:
                 if msg.toType == 2:
                     print "ok"
-                    _name = msg.text.replace("Greet","")
+                    _name = msg.text.replace("Anjiir","")
                     gs = ki.getGroup(msg.to)
                     gs = kk.getGroup(msg.to)
                     gs = kc.getGroup(msg.to)
@@ -2500,6 +2501,25 @@ def nameUpdate():
         except:
             pass
 thread2 = threading.Thread(target=nameUpdate)
+thread2.daemon = True
+thread2.start()
+
+def autolike():
+     for zx in range(0,20):
+        hasil = cl.activity(limit=20)
+        if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
+          try:    
+            cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+            cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by line.me/ti/p/~satria_hk")
+            kk.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+            kk.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by line.me/ti/p/~satria_hk")
+            print "Like"
+          except:
+            pass
+        else:
+            print "Already Liked"
+     time.sleep(500)
+thread2 = threading.Thread(target=autolike)
 thread2.daemon = True
 thread2.start()
 
