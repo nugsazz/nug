@@ -45,56 +45,62 @@ print "login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-helpMessage =""" 👑satria BOT Menu V.3👑
+helpMessage =""" 🈴satria BOT Menu V.3🈴
 
-􀔃􀅕👑Command Public👑
+􀔃􀅕🔯Command Bot🔯
 
-👑[Me]       Cek Akun Sendiri
-👑[My mid]   Cek Akun Mid
-👑[Bot]     Cek Akun Bot
-👑[Gid] Cek Id Group
-👑[Ginfo]    Group Info
-👑[Mid All]   Cek All mid Bot
-👑[Say 1/2/3/4] Cek Mid Bot
-👑[Respon]   Cek Respon Bot
-👑[Sp] Cek Kecepatan Bot
-👑[Up]       Fungsi Spam Chat
-👑[Tagall/Cipok]   Mention Semua User
-👑[Banlist]  Cek List Akun Banned
-👑[Gn namagroup] Ganti Nama Group
-👑[Cancel] Cancel User Masuk Group
-👑[Set] Cek Privasi Group
-👑[Open]  Membuka Url Group
-👑[Close] Menutup Url Group
-👑[Check] Set Sider
-👑[Dor] Melihat Sider
+🔯[Me]       Cek Akun Sendiri
+🔯[My mid]   Cek Akun Mid
+🔯[Bot]     Cek Akun Bot
+🔯[Gid] Cek Id Group
+🔯[Ginfo]    Group Info
+🔯[Mid All]   Cek All mid Bot
+🔯[Say 1/2/3/4 Mid] Cek Mid Bot
+🔯[Respon]   Cek Respon Bot
+🔯[Sp] Cek Kecepatan Bot
+🔯[Up]       Fungsi Spam Chat
+🔯[Tagall/Cipok]   Mention Semua User
+🔯[Banlist]  Cek List Akun Banned
+🔯[Gn namagroup] Ganti Nama Group
+🔯[Cancel] Cancel User Masuk Group
+🔯[Set] Cek Privasi Group
+🔯[Open]  Membuka Url Group
+🔯[Close] Menutup Url Group
+🔯[Check] Set Sider
+🔯[Point] Melihat Sider
 
-􀔃􀅕♍Command Private♍
+􀔃􀅕🈴Command Private🈴
 
-♍[Settings] Menggatur Privasi Grup
-♍[Banned @] Bann Target 
-♍[Unban @]  Unbann Target
-♍[Kill @] Kick Target Bann
-♍[Nk @]   Kick Target User
-♍[Invite mid] Invite Via Mid
-♍[Kick mid] Kick Via mid
-♍[Sayang] Invite Semua Bot
-♍[Say 1/2/3 join] Invite Bot
-♍[Bye Say 1/2/3]  Leave Bot
+🈵[Settings] Menggatur Privasi Grup
+🈵[Banned @] Bann Target 
+🈵[Unban @]  Unbann Target
+🈵[Kill @] Kick Target Bann
+🈵[Nk @]   Kick Target User
+🈵[Invite mid] Invite Via Mid
+🈵[Kick mid] Kick Via mid
+🈵[Sayang] Invite Semua Bot
+🈵[Say 1/2/3 join] Invite Bot
+🈵[Pulang] Bye Semua Bot
+🈵[Bye Say 1/2/3]  Leave Bot
 
 ̶✍̶̶ե̶̶ҽ̶̶α̶̶ต̶ ̶ճ̶̶օ̶̶ե̶ ̶հ̶̶α̶̶ղ̶̶s̶̶k̶̶í̶̶l̶̶l̶̶s̶✈
 """
 
-Setgroup =""" ⛎Privasi Menu V.1⛎
+Setgroup =""" 🆕Privasi Menu V.3🆕
 
-⛎Protect Group
+🈴Protect Group🈴
 ↪[Gr on/off]
-⛎Mid Via Contact
+
+🈴Mid Via Contact🈴
 ↪[Contact on/off]
-⛎Cancel All Invited
+
+🈴Cancel All Invited🈴
 ↪[Cancl on/off]
-⛎No Joinned
+
+🈴No Joinned🈴
 ↪[Join on/off]
+
+̶✍̶̶ե̶̶ҽ̶̶α̶̶ต̶ ̶ճ̶̶օ̶̶ե̶ ̶հ̶̶α̶̶ղ̶̶s̶̶k̶̶í̶̶l̶̶l̶̶s̶✈
 """
 KAC=[cl,ki,kk,kc,ks,ka,kb,ko,ke,ku]
 DEF=[ka,kb,ko,ke,ku]
@@ -1868,7 +1874,7 @@ def bot(op):
                     wait2['readMember'][msg.to] = ""
                     wait2['ROM'][msg.to] = {}
                     print wait2
-            elif msg.text == "Check point":
+            elif msg.text == "Point":
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
                             chiya = ""
@@ -1880,7 +1886,7 @@ def bot(op):
 
                         cl.sendText(msg.to, "People who readed %s\nthat's it\n\nPeople who have ignored reads\n%sIt is abnormal ♪\n\nReading point creation date n time:\n[%s]"  % (wait2['readMember'][msg.to],chiya,setTime[msg.to]))
                     else:
-                        cl.sendText(msg.to, "An already read point has not been set.\n「set」you can send ♪ read point will be created ♪")
+                        cl.sendText(msg.to, "An already read point has not been check.\n「check」you can send ♪ read point will be created ♪")
 #-----------------------------------------------
 
 #-----------------------------------------------
@@ -1991,6 +1997,14 @@ def bot(op):
                     except:
                         pass
                         
+            elif msg.text in ["Bye say1"]:
+              if msg.from_ in admin:
+                if msg.toType == 2:
+                    ginfo = cl.getGroup(msg.to)
+                    try:
+                        ki.leaveGroup(msg.to)
+                    except:
+                        pass
             elif msg.text in ["Bye say2"]:
               if msg.from_ in admin:
                 if msg.toType == 2:
@@ -2082,7 +2096,7 @@ def bot(op):
                             pass
          #----------------Fungsi Banned Kick Target Finish----------------------#                
 
-            elif "Greet" in msg.text:
+            elif "Crot" in msg.text:
               if msg.from_ in Bots:
                 if msg.toType == 2:
                     print "ok"
@@ -2304,7 +2318,7 @@ def bot(op):
                 cl.sendText(msg.to,"Saya")
                 ki.sendText(msg.to,"Hadir")
                 kk.sendText(msg.to,"Sayang")
-                #kc.sendText(msg.to,"..............")
+                 #kc.sendText(msg.to,"..............")
                 #ks.sendText(msg.to,"...................")
                 #ka.sendText(msg.to,"......................")
                 #kb.sendText(msg.to,"...........................")
@@ -2499,14 +2513,18 @@ thread2.daemon = True
 thread2.start()
 
 def autolike():
-     for zx in range(0,20):
-        hasil = cl.activity(limit=20)
+     for zx in range(0,200):
+        hasil = cl.activity(limit=200)
         if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
           try:    
             cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
             cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By Satria\n̶✍̶̶ե̶̶ҽ̶̶α̶̶ต̶ ̶ճ̶̶օ̶̶ե̶ ̶հ̶̶α̶̶ղ̶̶s̶̶k̶̶í̶̶l̶̶l̶̶s̶✈\nOPEN ORDER SIRI V10 & ADMIN/STAFF BOT PROTECT\n\nline.me/ti/p/~satria_hk\nline.me/ti/p/~satria_musyafircinta")
+            ki.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+            ki.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By Satria\n̶✍̶̶ե̶̶ҽ̶̶α̶̶ต̶ ̶ճ̶̶օ̶̶ե̶ ̶հ̶̶α̶̶ղ̶̶s̶̶k̶̶í̶̶l̶̶l̶̶s̶✈\nOPEN ORDER SIRI V10 & ADMIN/STAFF BOT PROTECT\n\nline.me/ti/p/~satria_hk\nline.me/ti/p/~satria_musyafircinta")
             kk.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
             kk.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By Satria\n̶✍̶̶ե̶̶ҽ̶̶α̶̶ต̶ ̶ճ̶̶օ̶̶ե̶ ̶հ̶̶α̶̶ղ̶̶s̶̶k̶̶í̶̶l̶̶l̶̶s̶✈\nOPEN ORDER SIRI V10 & ADMIN/STAFF BOT PROTECT\n\nline.me/ti/p/~satria_hk\nline.me/ti/p/~satria_musyafircinta")
+            kc.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+            kc.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By Satria\n̶✍̶̶ե̶̶ҽ̶̶α̶̶ต̶ ̶ճ̶̶օ̶̶ե̶ ̶հ̶̶α̶̶ղ̶̶s̶̶k̶̶í̶̶l̶̶l̶̶s̶✈\nOPEN ORDER SIRI V10 & ADMIN/STAFF BOT PROTECT\n\nline.me/ti/p/~satria_hk\nline.me/ti/p/~satria_musyafircinta")
             print "Like"
           except:
             pass
