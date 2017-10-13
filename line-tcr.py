@@ -39,7 +39,7 @@ kc.login(qr=True)
 #ku = LINETCR.LINE()
 #ku.login(qr=True)
 
-kc = ks = ka = kb = ko = ke = ku = cl
+ks = ka = kb = ko = ke = ku = cl
 
 print "login success"
 reload(sys)
@@ -1576,25 +1576,25 @@ def bot(op):
             elif msg.text in ["Set"]:
                 md = ""
                 if wait["Protectjoin"] == True: md+="􀔃􀆑lock􏿿  Block Join\n"
-                else: md+=" Block Join Off\n"
+                else: md+=" ✈Block Join Off\n"
                 if wait["Protectgr"] == True: md+="􀔃􀆑lock􏿿   Block Group\n"
                 else: md+=" Block Group Off\n"
                 if wait["Protectcancl"] == True: md+="􀔃􀆑lock􏿿 Cancel All Invited\n"
-                else: md+=" Cancel All Invited Off\n"
-                if wait["contact"] == True: md+=" Contact    : on\n"
-                else: md+=" Contact    : off\n"
-                if wait["autoJoin"] == True: md+=" Auto join : on\n"
-                else: md +=" Auto join : off\n"
-                if wait["autoCancel"]["on"] == True:md+=" Group cancel :" + str(wait["autoCancel"]["members"]) + "\n"
-                else: md+= " Group cancel : off\n"
-                if wait["leaveRoom"] == True: md+=" Auto leave    : on\n"
-                else: md+=" Auto leave : off\n"
-                if wait["timeline"] == True: md+=" Share   : on\n"
-                else:md+=" Share   : off\n"
-                if wait["autoAdd"] == True: md+=" Auto add : on\n"
-                else:md+=" Auto add : off\n"
-                if wait["commentOn"] == True: md+=" Comment : on\n"
-                else:md+=" Comment : off\n"
+                else: md+=" ✈Cancel All Invited Off\n"
+                if wait["contact"] == True: md+=" ✈Contact    : on\n"
+                else: md+=" ✈Contact    : off\n"
+                if wait["autoJoin"] == True: md+=" ✈Auto join : on\n"
+                else: md +=" ✈Auto join : off\n"
+                if wait["autoCancel"]["on"] == True:md+=" ✈Group cancel :" + str(wait["autoCancel"]["members"]) + "\n"
+                else: md+= " ✈Group cancel : off\n"
+                if wait["leaveRoom"] == True: md+=" ✈Auto leave    : on\n"
+                else: md+=" ✈Auto leave : off\n"
+                if wait["timeline"] == True: md+=" ✈Share   : on\n"
+                else:md+=" ✈Share   : off\n"
+                if wait["autoAdd"] == True: md+=" ✈Auto add : on\n"
+                else:md+=" ✈Auto add : off\n"
+                if wait["commentOn"] == True: md+=" ✈Comment : on\n"
+                else:md+=" ✈Comment : off\n"
                 cl.sendText(msg.to,md)
             elif "album merit " in msg.text:
                 gid = msg.text.replace("album merit ","")
@@ -1820,21 +1820,21 @@ def bot(op):
         #-------------Fungsi Jam on/off Start-------------------#            
             elif msg.text in ["Jam on"]:
                 if wait["clock"] == True:
-                    kc.sendText(msg.to,"Bot 4 jam on")
+                    cl.sendText(msg.to,"Bot jam on")
                 else:
                     wait["clock"] = True
                     now2 = datetime.now()
                     nowT = datetime.strftime(now2,"(%H:%M)")
-                    profile = kc.getProfile()
-                    profile.displayName = wait["cName4"] + nowT
-                    kc.updateProfile(profile)
-                    kc.sendText(msg.to,"Jam Selalu On")
+                    profile = cl.getProfile()
+                    profile.displayName = wait["cName"] + nowT
+                    cl.updateProfile(profile)
+                    cl.sendText(msg.to,"Jam Sudah Aktif")
             elif msg.text in ["Jam off"]:
                 if wait["clock"] == False:
-                    kc.sendText(msg.to,"Bot 4 jam off")
+                    cl.sendText(msg.to,"Bot jam off")
                 else:
                     wait["clock"] = False
-                    kc.sendText(msg.to,"Jam Sedang Off")
+                    cl.sendText(msg.to,"Jam Sedang Off")
          #-------------Fungsi Jam on/off Finish-------------------#           
          
          #-------------Fungsi Change Clock Start------------------#
@@ -1852,14 +1852,14 @@ def bot(op):
                 if wait["clock"] == True:
                     now2 = datetime.now()
                     nowT = datetime.strftime(now2,"(%H:%M)")
-                    profile = kc.getProfile()
-                    profile.displayName = wait["cName4"] + nowT
-                    kc.updateProfile(profile)
-                    kc.sendText(msg.to,"Sukses update")
+                    profile = cl.getProfile()
+                    profile.displayName = wait["cName"] + nowT
+                    cl.updateProfile(profile)
+                    cl.sendText(msg.to,"Sukses update")
                 else:
-                    kc.sendText(msg.to,"Aktifkan jam terlebih dulu")
+                    cl.sendText(msg.to,"Aktifkan jam terlebih dulu")
          #-------------Fungsi Jam Update Finish-------------------#
-            elif msg.text == "$set":
+            elif msg.text == "Check":
                     cl.sendText(msg.to, "Check sider")
                     ki.sendText(msg.to, "Check sider")
                     kk.sendText(msg.to, "Check sider")
@@ -1873,7 +1873,7 @@ def bot(op):
                     wait2['readMember'][msg.to] = ""
                     wait2['ROM'][msg.to] = {}
                     print wait2
-            elif msg.text == "$tes":
+            elif msg.text == "Point":
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
                             chiya = ""
@@ -1885,7 +1885,7 @@ def bot(op):
 
                         cl.sendText(msg.to, "People who readed %s\nthat's it\n\nPeople who have ignored reads\n%sIt is abnormal ♪\n\nReading point creation date n time:\n[%s]"  % (wait2['readMember'][msg.to],chiya,setTime[msg.to]))
                     else:
-                        cl.sendText(msg.to, "An already read point has not been check.\n「check」you can send ♪ read point will be created ♪")
+                        cl.sendText(msg.to, "An already read point has not been set.\n「set」you can send ♪ read point will be created ♪")
 #-----------------------------------------------
 
 #-----------------------------------------------
@@ -1990,11 +1990,11 @@ def bot(op):
                 if msg.toType == 2:
                     ginfo = cl.getGroup(msg.to)
                     try:
-                        ki.sendText(msg.to,"Bye Bye Semua")
+                        ki.sendText(msg.to, "[group name]\n" + str(ginfo.name)Bye Bye")
                         ki.leaveGroup(msg.to)
                         kk.sendText(msg.to,"Bye Bye Semua")
                         kk.leaveGroup(msg.to)
-                        kc.sendText(msg.to,"Sampai Jumpa Lagi")
+                        kc.sendText(msg.to,"Bye Bye Semua")
                         kc.leaveGroup(msg.to)
                     except:
                         pass
@@ -2054,6 +2054,24 @@ def bot(op):
                   group = cl.getGroup(msg.to)
                   nama = [contact.mid for contact in group.members]
 
+                  cb = ""
+                  cb2 = ""
+                  strt = int(0)
+                  akh = int(0)
+                  for md in nama:
+                      akh = akh + int(6)
+
+                      cb += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(md)+"},"""
+
+                      strt = strt + int(7)
+                      akh = akh + 1
+                      cb2 += "@nrik \n"
+
+                  cb = (cb[:int(len(cb)-1)])
+                  msg.contentType = 0
+                  msg.text = cb2
+                  msg.contentMetadata ={'MENTION':'{"MENTIONEES":['+cb+']}','EMTVER':'4'}
+                   
                   cb = ""
                   cb2 = ""
                   strt = int(0)
@@ -2348,7 +2366,35 @@ def bot(op):
                 kk.sendText(msg.to, "%sseconds" % (elapsed_time))
                 kc.sendText(msg.to, "%sseconds" % (elapsed_time))
       #-------------Fungsi Speedbot Finish---------------------#
+            elif msg.text in ["Tag All"]:
+                group = client.getGroup(msg.to)	  
+                nama = [contact.mid for contact in group.members]
+                nm1, nm2, nm3, jml = [], [], [], len(nama)	
+                elif jml <= 100:	 mention(msg.to, nama)	  
+                elif jml > 100 and jml < 200:	   
+                     for i in range(0, 99):	
+                         nm1 += [nama[i]]	  
+                     mention(msg.to, nm1)
+                     for j in range(100, len(nama)-1):
+                         nm2 += [nama[j]]	     
+                     mention(msg.to, nm2)
+                eliif jml > 200 and jml < 300:	  
+                      for i in range(0, 99):	  
+                          nm1 += [nama[i]]	  
+                      mention(msg.to, nm1)	 
+                      for j in range(100, 199):	  
+                          nm2 += [nama[j]]	   
+                      mention(msg.to, nm2, jml)	  
+                      for k in range(200, len(nama)-1):	 
+                          nm3 += [nama[k]]	  
 
+                      mention(msg.to, nm3, jml)	  
+            elif jml > 300:	 
+                  print "Terlalu Banyak Men 300+"	  
+            cnt = Message()	 
+            cnt.text = "Done:"+str(jml)	 
+            cont.to = msg.to	  
+            client.sendMessage(cnt)
       #-------------Fungsi Banned Send Contact Start------------------#
             elif msg.text in ["Ban"]:
                 wait["wblacklist"] = True
@@ -2525,13 +2571,13 @@ def autolike():
         hasil = cl.activity(limit=200)
         if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
           try:    
-            cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+            cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
             cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By Satria\n̶✍̶̶ե̶̶ҽ̶̶α̶̶ต̶ ̶ճ̶̶օ̶̶ե̶ ̶հ̶̶α̶̶ղ̶̶s̶̶k̶̶í̶̶l̶̶l̶̶s̶✈\nOPEN ORDER SIRI V10 & ADMIN/STAFF BOT PROTECT\n\nline.me/ti/p/~satria_hk\nline.me/ti/p/~satria_musyafircinta")
-            ki.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+            ki.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
             ki.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By Satria\n̶✍̶̶ե̶̶ҽ̶̶α̶̶ต̶ ̶ճ̶̶օ̶̶ե̶ ̶հ̶̶α̶̶ղ̶̶s̶̶k̶̶í̶̶l̶̶l̶̶s̶✈\nOPEN ORDER SIRI V10 & ADMIN/STAFF BOT PROTECT\n\nline.me/ti/p/~satria_hk\nline.me/ti/p/~satria_musyafircinta")
-            kk.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+            kk.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
             kk.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By Satria\n̶✍̶̶ե̶̶ҽ̶̶α̶̶ต̶ ̶ճ̶̶օ̶̶ե̶ ̶հ̶̶α̶̶ղ̶̶s̶̶k̶̶í̶̶l̶̶l̶̶s̶✈\nOPEN ORDER SIRI V10 & ADMIN/STAFF BOT PROTECT\n\nline.me/ti/p/~satria_hk\nline.me/ti/p/~satria_musyafircinta")
-            kc.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+            kc.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
             kc.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By Satria\n̶✍̶̶ե̶̶ҽ̶̶α̶̶ต̶ ̶ճ̶̶օ̶̶ե̶ ̶հ̶̶α̶̶ղ̶̶s̶̶k̶̶í̶̶l̶̶l̶̶s̶✈\nOPEN ORDER SIRI V10 & ADMIN/STAFF BOT PROTECT\n\nline.me/ti/p/~satria_hk\nline.me/ti/p/~satria_musyafircinta")
             print "Like"
           except:
