@@ -1859,8 +1859,7 @@ def bot(op):
                 else:
                     kc.sendText(msg.to,"Aktifkan jam terlebih dulu")
          #-------------Fungsi Jam Update Finish-------------------#
-
-            elif msg.text == "Check":
+            elif msg.text == "$set":
                     cl.sendText(msg.to, "Check sider")
                     ki.sendText(msg.to, "Check sider")
                     kk.sendText(msg.to, "Check sider")
@@ -1874,7 +1873,7 @@ def bot(op):
                     wait2['readMember'][msg.to] = ""
                     wait2['ROM'][msg.to] = {}
                     print wait2
-            elif msg.text == "Point":
+            elif msg.text == "$tes":
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
                             chiya = ""
@@ -1991,8 +1990,11 @@ def bot(op):
                 if msg.toType == 2:
                     ginfo = cl.getGroup(msg.to)
                     try:
+                        ki.sendText(msg.to,"Bye Bye Semua")
                         ki.leaveGroup(msg.to)
+                        kk.sendText(msg.to,"Bye Bye Semua")
                         kk.leaveGroup(msg.to)
+                        kc.sendText(msg.to,"Sampai Jumpa Lagi")
                         kc.leaveGroup(msg.to)
                     except:
                         pass
@@ -2002,6 +2004,7 @@ def bot(op):
                 if msg.toType == 2:
                     ginfo = cl.getGroup(msg.to)
                     try:
+                        ki.sendText(msg.to,"Papay Sayang")
                         ki.leaveGroup(msg.to)
                     except:
                         pass
@@ -2010,6 +2013,7 @@ def bot(op):
                 if msg.toType == 2:
                     ginfo = cl.getGroup(msg.to)
                     try:
+                        kk.sendText(msg.to,"Papay Sayang")
                         kk.leaveGroup(msg.to)
                     except:
                         pass
@@ -2018,6 +2022,7 @@ def bot(op):
                 if msg.toType == 2:
                     ginfo = cl.getGroup(msg.to)
                     try:
+                        kc.sendText(msg.to,"Papay Sayang")
                         kc.leaveGroup(msg.to)
                     except:
                         pass
@@ -2104,7 +2109,7 @@ def bot(op):
                     gs = ki.getGroup(msg.to)
                     gs = kk.getGroup(msg.to)
                     gs = kc.getGroup(msg.to)
-                    ki.sendText(msg.to,"maaf kalo gak sopan")
+                    ki.sendText(msg.to,"maaf kalo gak sopan team hans kills bot datang")
                     kk.sendText(msg.to,"makasih semuanya..")
                     kc.sendText(msg.to,"hehehhehe")
                     msg.contentType = 13
@@ -2299,10 +2304,10 @@ def bot(op):
                 ki.sendText(msg.to,"Have a nice dream Cv 􀜁􀅔Har Har􏿿")
                 kk.sendText(msg.to,"Have a nice dream Cv 􀜁􀅔Har Har􏿿")
                 kc.sendText(msg.to,"Have a nice dream Cv 􀜁􀅔Har Har􏿿")
-            elif msg.text in ["Cv say chomel pekok"]:
-                ki.sendText(msg.to,"Chomel pekok 􀜁􀅔Har Har􏿿")
-                kk.sendText(msg.to,"Chomel pekok 􀜁􀅔Har Har􏿿")
-                kc.sendText(msg.to,"Chomel pekok 􀜁􀅔Har Har􏿿")
+            elif msg.text in ["Cv say satria pekok"]:
+                ki.sendText(msg.to,"Satria pasa 􀜁􀅔Har Har􏿿")
+                kk.sendText(msg.to,"Satria ganteng 􀜁􀅔Har Har􏿿")
+                kc.sendText(msg.to,"Satria keren 􀜁􀅔Har Har􏿿")
             elif msg.text in ["Welcome"]:
                 ki.sendText(msg.to,"Selamat datang di Satria Family Room")
                 kk.sendText(msg.to,"Jangan nakal ok!")
@@ -2318,12 +2323,13 @@ def bot(op):
                 cl.sendText(msg.to,"Saya")
                 ki.sendText(msg.to,"Hadir")
                 kk.sendText(msg.to,"Sayang")
-                 #kc.sendText(msg.to,"..............")
-                #ks.sendText(msg.to,"...................")
+                kc.sendText(msg.to,"Micuuu")
+          
+           #ks.sendText(msg.to,"...................")
                 #ka.sendText(msg.to,"......................")
                 #kb.sendText(msg.to,"...........................")
                 #ko.sendText(msg.to,"...............................")
-                ke.sendText(msg.to,"Complete 100%")
+                #ke.sendText(msg.to,"Complete 100%")
       #-------------Fungsi Respon Finish---------------------#
 
       #-------------Fungsi Balesan Respon Start---------------------#
@@ -2338,6 +2344,9 @@ def bot(op):
                 cl.sendText(msg.to, "Waiting...")
                 elapsed_time = time.time() - start
                 cl.sendText(msg.to, "%sseconds" % (elapsed_time))
+                ki.sendText(msg.to, "%sseconds" % (elapsed_time))
+                kk.sendText(msg.to, "%sseconds" % (elapsed_time))
+                kc.sendText(msg.to, "%sseconds" % (elapsed_time))
       #-------------Fungsi Speedbot Finish---------------------#
 
       #-------------Fungsi Banned Send Contact Start------------------#
@@ -2511,7 +2520,6 @@ def nameUpdate():
 thread2 = threading.Thread(target=nameUpdate)
 thread2.daemon = True
 thread2.start()
-
 def autolike():
      for zx in range(0,200):
         hasil = cl.activity(limit=200)
@@ -2534,7 +2542,6 @@ def autolike():
 thread2 = threading.Thread(target=autolike)
 thread2.daemon = True
 thread2.start()
-
 while True:
     try:
         Ops = cl.fetchOps(cl.Poll.rev, 5)
