@@ -6,22 +6,22 @@ from datetime import datetime
 import time,random,sys,json,codecs,threading,glob,re
 
 cl = LINETCR.LINE()
-cl.login(qr=true)
+cl.login(qr=True)
 cl.loginResult()
 
 ki = LINETCR.LINE()
-ki.login(qr=true)
+ki.login(qr=True)
 ki.loginResult()
 
-#kk = LINETCR.LINE()
-#kk.login(token='ElMjH5yrmmMWrAVkpU17.Oa5sbxNtBsBfVZtKvM8HTW.RBPkPu4hMwhMffP4VxKycQB06735IXI7S2n8jWkozbQ=')
-#kk.loginResult()
+kk = LINETCR.LINE()
+kk.login(qr=True)
+kk.loginResult()
 
 #kc = LINETCR.LINE()
 #kc.login(token='ElIuGwl8nhpugeE6onqd.9pUhX45E7oBPdnzBTNba3q.N/Lhd8qPFB102ooO0BBzqkxQOl3XMwaZIGJWexKbs9E=')
 #kc.loginResult()
 
-kk = kc = ky = cl
+kc = ky = cl
 print "login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -1664,19 +1664,23 @@ thread2 = threading.Thread(target=nameUpdate)
 thread2.daemon = True
 thread2.start()
 def autolike():
-     for zx in range(0,200):
-        hasil = cl.activity(limit=200)
+     for zx in range(0,20):
+        hasil = cl.activity(limit=20)
         if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
-         try:
-           cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)    
-           cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By Satria\n̶✍̶̶ե̶̶ҽ̶̶α̶̶ต̶ ̶ճ̶̶օ̶̶ե̶ ̶հ̶̶α̶̶ղ̶̶s̶̶k̶̶í̶̶l̶̶l̶̶s̶✈\nOPEN ORDER SIRI V10 & ADMIN/STAFF BOT PROTECT\n\nline.me/ti/p/~satria_hk\nline.me/ti/p/~satria_musyafircinta")  
-           ki.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)  
-           ki.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By Satria\n̶✍̶̶ե̶̶ҽ̶̶α̶̶ต̶ ̶ճ̶̶օ̶̶ե̶ ̶հ̶̶α̶̶ղ̶̶s̶̶k̶̶í̶̶l̶̶l̶̶s̶✈\nOPEN ORDER SIRI V10 & ADMIN/STAFF BOT PROTECT\n\nline.me/ti/p/~satria_hk\nline.me/ti/p/~satria_musyafircinta")  
-           #kk.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)  
-           #kk.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By Satria\n̶✍̶̶ե̶̶ҽ̶̶α̶̶ต̶ ̶ճ̶̶օ̶̶ե̶ ̶հ̶̶α̶̶ղ̶̶s̶̶k̶̶í̶̶l̶̶l̶̶s̶✈\nOPEN ORDER SIRI V10 & ADMIN/STAFF BOT PROTECT\n\nline.me/ti/p/~satria_hk\nline.me/ti/p/~satria_musyafircinta")  
-           #kc.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)  
-           #kc.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By Satria\n̶✍̶̶ե̶̶ҽ̶̶α̶̶ต̶ ̶ճ̶̶օ̶̶ե̶ ̶հ̶̶α̶̶ղ̶̶s̶̶k̶̶í̶̶l̶̶l̶̶s̶✈\nOPEN ORDER SIRI V10 & ADMIN/STAFF BOT PROTECT\n\nline.me/ti/p/~satria_hk\nline.me/ti/p/~satria_musyafircinta") print "Like" except: pass else: print "Already Liked" time.sleep(500)thread2 = threading.Thread(target=autolike)thread2.daemon = Truethread2.start()
-
+          try:    
+            cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+            cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by\nline.me/ti/p/~satria_hk")
+            kk.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+            kk.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by\nline.me/ti/p/~satria_hk")
+            print "Like"
+          except:
+            pass
+        else:
+            print "Already Liked"
+     time.sleep(500)
+thread2 = threading.Thread(target=autolike)
+thread2.daemon = True
+thread2.start()
 while True:
     try:
         Ops = cl.fetchOps(cl.Poll.rev, 5)
