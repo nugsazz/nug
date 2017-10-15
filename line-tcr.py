@@ -172,6 +172,34 @@ def sendMessage(to, text, contentMetadata={}, contentType=0):
         messageReq[to] = -1
     messageReq[to] += 1
 
+def NOTIFIED_ACCEPT_GROUP_INVITATION(op):
+ #print op
+    try:
+        sendMessage(op.param1, client.getContact(op.param2).displayName + " WeCome ")
+    except Exception as e:
+        print e
+        print ("\n\nNOTIFIED_ACCEPT_GROUP_INVITATION\n\n")
+        return
+ tracer.addOpInterrupt(17,NOTIFIED_ACCEPT_GROUP_INVITATION) 
+
+def NOTIFIED_KICKOUT_FROM_GROUP(op):
+    try:
+        sendMessage(op.param1, client.getContact(op.param3).displayName + " Mampus lu kena kick")
+    except Exception as e: 
+        print e 
+        print ("\n\nNOTIFIED_KICKOUT_FROM_GROUP\n\n")
+        return
+ tracer.addOpInterrupt(19,NOTIFIED_KICKOUT_FROM_GROUP) 
+
+def NOTIFIED_LEAVE_GROUP(op):
+    try: sendMessage(op.param1, client.getContact(op.param2).displayName + " idih baper langsung leave")
+    except Exception as e:
+        print e
+        print ("\n\nNOTIFIED_LEAVE_GROUP\n\n")      
+        return
+
+tracer.addOpInterrupt(15,NOTIFIED_LEAVE_GROUP)
+
 def NOTIFIED_READ_MESSAGE(op):
     try:
         if op.param1 in wait2['readPoint']:
