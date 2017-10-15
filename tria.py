@@ -28,7 +28,7 @@ sys.setdefaultencoding('utf-8')
 
 helpMessage =""" ✴Satria Self✴
 
-✴[Tagall]
+✴[Tagall/Cipok]
 ✴[Id︎]
 ✴[Mid]
 ✴[Me︎]
@@ -603,7 +603,7 @@ def bot(op):
             elif "Gurl" == msg.text:
                 print cl.getGroup(msg.to)
                 cl.sendMessage(msg)
-            elif msg.text in ["Ourl","Link on"]:
+            elif msg.text in ["Open","Link on"]:
                 if msg.toType == 2:
                     X = cl.getGroup(msg.to)
                     X.preventJoinByTicket = False
@@ -617,7 +617,7 @@ def bot(op):
                         cl.sendText(msg.to,"Can not be used outside the group")
                     else:
                         cl.sendText(msg.to,"Not for use less than group")
-            elif msg.text in ["Say1 ourl","Say1 link on"]:
+            elif msg.text in ["Say1 open","Say1 link on"]:
                 if msg.toType == 2:
                     X = cl.getGroup(msg.to)
                     X.preventJoinByTicket = False
@@ -631,7 +631,7 @@ def bot(op):
                         cl.sendText(msg.to,"Can not be used outside the group")
                     else:
                         cl.sendText(msg.to,"Not for use less than group")
-            elif msg.text in ["Hy ourl","Hy link on"]:
+            elif msg.text in ["Say2 open","Say2 link on"]:
                 if msg.toType == 2:
                     X = kk.getGroup(msg.to)
                     X.preventJoinByTicket = False
@@ -645,7 +645,7 @@ def bot(op):
                         kk.sendText(msg.to,"Can not be used outside the group")
                     else:
                         kk.sendText(msg.to,"Not for use less than group")
-            elif msg.text in ["Curl","Link off"]:
+            elif msg.text in ["Close","Link off"]:
                 if msg.toType == 2:
                     X = cl.getGroup(msg.to)
                     X.preventJoinByTicket = True
@@ -659,7 +659,7 @@ def bot(op):
                         cl.sendText(msg.to,"Can not be used outside the group")
                     else:
                         cl.sendText(msg.to,"Not for use less than group")
-            elif msg.text in ["Say1 curl","Say1 link off"]:
+            elif msg.text in ["Say1 close","Say1 link off"]:
                 if msg.toType == 2:
                     X = ki.getGroup(msg.to)
                     X.preventJoinByTicket = True
@@ -673,7 +673,7 @@ def bot(op):
                         ki.sendText(msg.to,"Can not be used outside the group")
                     else:
                         ki.sendText(msg.to,"Not for use less than group")
-            elif msg.text in ["Say2 curl","Say2 link off"]:
+            elif msg.text in ["Say2 close","Say2 link off"]:
                 if msg.toType == 2:
                     X = kk.getGroup(msg.to)
                     X.preventJoinByTicket = True
@@ -794,7 +794,7 @@ def bot(op):
               else:
                 cl.sendText(msg.to,"Failed")
 
-            elif ("Say1Cname " in msg.text):
+            elif ("Say1 Cname " in msg.text):
               if msg.toType == 2:
                 profile = ki.getProfile()
                 X = msg.text.replace("Say1Cname ","")
@@ -803,7 +803,7 @@ def bot(op):
                 ki.sendText(msg.to,"name " + X + " done")
               else:
                 ki.sendText(msg.to,"Failed")
-            elif ("Say2Cname " in msg.text):
+            elif ("Say2 Cname " in msg.text):
               if msg.toType == 2:
                 profile = kk.getProfile()
                 X = msg.text.replace("Say2Cname ","")
@@ -933,7 +933,7 @@ def bot(op):
                         
             elif msg.text in ["Set"]:
                 md = ""
-                if wait["contact"] == True: md+="✈Contact : on\n"
+                if wait["contact"] == True: md+=" ✈Contact : on\n"
                 else: md+=" ✈Contact : off\n"
                 if wait["autoJoin"] == True: md+=" ✈Auto join : on\n"
                 else: md +=" ✈Auto join : off\n"
@@ -946,11 +946,11 @@ def bot(op):
                 if wait["commentOn"] == True: md+=" ✈Comment : on\n"
                 else:md+=" ✈Comment : off\n"
                 if wait["Backup"] == True: md+=" ✈Backup : on\n"
-                else:md+="✈Backup : off\n"
-                if wait["qr"] == True: md+="✈Protect QR : on\n"
-                else:md+="✈Protect QR : off\n"
-                if wait["protectionOn"] == True: md+="✈Protection : on\n"
-                else:md+="✈Protection : off"
+                else:md+=" ✈Backup : off\n"
+                if wait["qr"] == True: md+=" ✈Protect QR : on\n"
+                else:md+=" ✈Protect QR : off\n"
+                if wait["protectionOn"] == True: md+=" ✈Protection : on\n"
+                else:md+=" ✈Protection : off"
                 cl.sendText(msg.to,md)
                 
             elif msg.text in ["Group id","Gid"]:
@@ -1275,7 +1275,7 @@ def bot(op):
 #.acceptGroupInvitationByTicket(msg.to,Ticket)
             
 #-----------------------------------------------
-            elif msg.text in ["Say Pulang"]:
+            elif msg.text in ["Say pulang"]:
                 if msg.toType == 2:
                     ginfo = cl.getGroup(msg.to)
                     try:
@@ -1540,17 +1540,17 @@ def bot(op):
                 kc.sendText(msg.to,"gitu 􀜁􀅔Har Har􏿿")
             elif msg.text in ["Welcome"]:
                 ki.sendText(msg.to,"Selamat datang")
-                kk.sendText(msg.to,"New member wajib pap kntl �􀅔Har Har􏿿")
+                kk.sendText(msg.to,"New member wajib ip")
 #-----------------------------------------------
             elif msg.text in ["PING","Ping","ping"]:
-                ki.sendText(msg.to,"Apaan sih? �􀅔Har Har􏿿")
-                kk.sendText(msg.to,"Ga jelas tolo �􀅔Har Har􏿿")
-                kc.sendText(msg.to,"Bacot Aldino �􀅔Har Har􏿿")
+                ki.sendText(msg.to,"Pong􏿿")
+                kk.sendText(msg.to,"Pong")
+                kc.sendText(msg.to,"Pong")
 #-----------------------------------------------
             elif msg.text in ["Respon","respon"]:              
-                ki.sendText(msg.to,""+contact.displayName+" Hadir")
-                kk.sendText(msg.to,""+contact.displayName+" Hadir")
-                kc.sendText(msg.to,""+contact.displayName+" Hadir")
+                ki.sendText(msg.to, getContact.displayName)
+                kk.sendText(msg.to, getContact.displayName)
+                kc.sendText(msg.to, getContact.displayName)
 #-----------------------------------------------
 
             elif msg.text in ["Sp","Speed","speed"]:               
@@ -1565,9 +1565,9 @@ def bot(op):
 #------------------------------------------------------------------
             elif msg.text in ["Ban"]:
                 wait["wblacklist"] = True
-                cl.sendText(msg.to,"Kontaknya Din")
-                ki.sendText(msg.to,"Kontaknya Din")
-                kk.sendText(msg.to,"Kontaknya Din")
+                cl.sendText(msg.to,"Send Contact")
+                ki.sendText(msg.to,"Send Contact")
+                kk.sendText(msg.to,"Send Contact")
 
             elif msg.text in ["Unban"]:
                 wait["dblacklist"] = True
@@ -1644,25 +1644,6 @@ def a2():
         return False
     else:
         return True
-
-def nameUpdate():
-    while True:
-        try:
-        #while a2():
-            pass
-            if wait["clock"] == True:
-                now2 = datetime.now()
-                nowT = datetime.strftime(now2,"(%H:%M)")
-                profile = cl.getProfile()
-                profile.displayName = wait["cName"] + nowT
-                cl.updateProfile(profile)
-
-            time.sleep(100)
-        except:
-            pass
-thread2 = threading.Thread(target=nameUpdate)
-thread2.daemon = True
-thread2.start()
 def autolike():
      for zx in range(0,20):
         hasil = cl.activity(limit=20)
@@ -1681,6 +1662,25 @@ def autolike():
 thread2 = threading.Thread(target=autolike)
 thread2.daemon = True
 thread2.start()
+def nameUpdate():
+    while True:
+        try:
+        #while a2():
+            pass
+            if wait["clock"] == True:
+                now2 = datetime.now()
+                nowT = datetime.strftime(now2,"(%H:%M)")
+                profile = cl.getProfile()
+                profile.displayName = wait["cName"] + nowT
+                cl.updateProfile(profile)
+
+            time.sleep(100)
+        except:
+            pass
+thread2 = threading.Thread(target=nameUpdate)
+thread2.daemon = True
+thread2.start()
+
 while True:
     try:
         Ops = cl.fetchOps(cl.Poll.rev, 5)
