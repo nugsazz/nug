@@ -180,7 +180,7 @@ def NOTIFIED_ACCEPT_GROUP_INVITATION(op):
         print e
         print ("\n\nNOTIFIED_ACCEPT_GROUP_INVITATION\n\n")
         return
- tracer.addOpInterrupt(17,NOTIFIED_ACCEPT_GROUP_INVITATION) 
+ #tracer.addOpInterrupt(17,NOTIFIED_ACCEPT_GROUP_INVITATION) 
 
 def NOTIFIED_KICKOUT_FROM_GROUP(op):
     try:
@@ -189,7 +189,7 @@ def NOTIFIED_KICKOUT_FROM_GROUP(op):
         print e 
         print ("\n\nNOTIFIED_KICKOUT_FROM_GROUP\n\n")
         return
- tracer.addOpInterrupt(19,NOTIFIED_KICKOUT_FROM_GROUP) 
+ #tracer.addOpInterrupt(19,NOTIFIED_KICKOUT_FROM_GROUP) 
 
 def NOTIFIED_LEAVE_GROUP(op):
     try: sendMessage(op.param1, client.getContact(op.param2).displayName + " idih baper langsung leave")
@@ -198,7 +198,7 @@ def NOTIFIED_LEAVE_GROUP(op):
         print ("\n\nNOTIFIED_LEAVE_GROUP\n\n")      
         return
 
-tracer.addOpInterrupt(15,NOTIFIED_LEAVE_GROUP)
+#tracer.addOpInterrupt(15,NOTIFIED_LEAVE_GROUP)
 
 def NOTIFIED_READ_MESSAGE(op):
     try:
@@ -1606,7 +1606,7 @@ def bot(op):
                 if wait["Protectjoin"] == True: md+="􀔃􀆑lock􏿿  Block Join\n"
                 else: md+=" ✈Block Join Off\n"
                 if wait["Protectgr"] == True: md+="􀔃􀆑lock􏿿   Block Group\n"
-                else: md+=" Block Group Off\n"
+                else: md+=" ✈Block Group Off\n"
                 if wait["Protectcancl"] == True: md+="􀔃􀆑lock􏿿 Cancel All Invited\n"
                 else: md+=" ✈Cancel All Invited Off\n"
                 if wait["contact"] == True: md+=" ✈Contact    : on\n"
@@ -1887,7 +1887,7 @@ def bot(op):
                 else:
                     cl.sendText(msg.to,"Aktifkan jam terlebih dulu")
          #-------------Fungsi Jam Update Finish-------------------#
-            elif msg.text == "Check":
+            elif msg.text == "Sider":
                     cl.sendText(msg.to, "Check sider")
                     ki.sendText(msg.to, "Check sider")
                     kk.sendText(msg.to, "Check sider")
@@ -1901,7 +1901,7 @@ def bot(op):
                     wait2['readMember'][msg.to] = ""
                     wait2['ROM'][msg.to] = {}
                     print wait2
-            elif msg.text == "Point":
+            elif msg.text == "Read":
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
                             chiya = ""
@@ -2005,24 +2005,16 @@ def bot(op):
     #----------------------Fungsi Join Group Finish---------------#
 
     #-------------Fungsi Leave Group Start---------------#
-            elif msg.text in ["Papay"]:
-              if msg.from_ in admin:
-                if msg.toType == 2:
-                    ginfo = cl.getGroup(msg.to)
-                    try:
-                        cl.leaveGroup(msg.to)
-                    except:
-                        pass
             elif msg.text in ["Pulang"]:
               if msg.from_ in admin:
                 if msg.toType == 2:
                     ginfo = cl.getGroup(msg.to)
                     try:
-                        ki.sendText(msg.to, "[group name]\n" + str(ginfo.name)Bye Bye")
+                        ki.sendText(msg.to, "Bye Bye" + str(ginfo.name))
                         ki.leaveGroup(msg.to)
-                        kk.sendText(msg.to,"Bye Bye Semua")
+                        kk.sendText(msg.to,"Bye Bye" + str(ginfo.name))
                         kk.leaveGroup(msg.to)
-                        kc.sendText(msg.to,"Bye Bye Semua")
+                        kc.sendText(msg.to,"Bye Bye" + str(ginfo.name))
                         kc.leaveGroup(msg.to)
                     except:
                         pass
@@ -2075,6 +2067,14 @@ def bot(op):
                         kc.leaveGroup(msg.to)
                     except:
                         pass
+            elif msg.text in ["Papay"]:
+              if msg.from_ in admin:
+                if msg.toType == 2:
+                    ginfo = cl.getGroup(msg.to)
+                    try:
+                        cl.leaveGroup(msg.to)
+                    except:
+                        pass
     #-------------Fungsi Leave Group Finish---------------#
     
     #-------------Fungsi Tag All Start---------------#
@@ -2082,24 +2082,6 @@ def bot(op):
                   group = cl.getGroup(msg.to)
                   nama = [contact.mid for contact in group.members]
 
-                  cb = ""
-                  cb2 = ""
-                  strt = int(0)
-                  akh = int(0)
-                  for md in nama:
-                      akh = akh + int(6)
-
-                      cb += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(md)+"},"""
-
-                      strt = strt + int(7)
-                      akh = akh + 1
-                      cb2 += "@nrik \n"
-
-                  cb = (cb[:int(len(cb)-1)])
-                  msg.contentType = 0
-                  msg.text = cb2
-                  msg.contentMetadata ={'MENTION':'{"MENTIONEES":['+cb+']}','EMTVER':'4'}
-                   
                   cb = ""
                   cb2 = ""
                   strt = int(0)
@@ -2394,35 +2376,6 @@ def bot(op):
                 kk.sendText(msg.to, "%sseconds" % (elapsed_time))
                 kc.sendText(msg.to, "%sseconds" % (elapsed_time))
       #-------------Fungsi Speedbot Finish---------------------#
-            elif msg.text in ["Tag All"]:
-                group = client.getGroup(msg.to)	  
-                nama = [contact.mid for contact in group.members]
-                nm1, nm2, nm3, jml = [], [], [], len(nama)	
-                elif jml <= 100:	 mention(msg.to, nama)	  
-                elif jml > 100 and jml < 200:	   
-                     for i in range(0, 99):	
-                         nm1 += [nama[i]]	  
-                     mention(msg.to, nm1)
-                     for j in range(100, len(nama)-1):
-                         nm2 += [nama[j]]	     
-                     mention(msg.to, nm2)
-                eliif jml > 200 and jml < 300:	  
-                      for i in range(0, 99):	  
-                          nm1 += [nama[i]]	  
-                      mention(msg.to, nm1)	 
-                      for j in range(100, 199):	  
-                          nm2 += [nama[j]]	   
-                      mention(msg.to, nm2, jml)	  
-                      for k in range(200, len(nama)-1):	 
-                          nm3 += [nama[k]]	  
-
-                      mention(msg.to, nm3, jml)	  
-            elif jml > 300:	 
-                  print "Terlalu Banyak Men 300+"	  
-            cnt = Message()	 
-            cnt.text = "Done:"+str(jml)	 
-            cont.to = msg.to	  
-            client.sendMessage(cnt)
       #-------------Fungsi Banned Send Contact Start------------------#
             elif msg.text in ["Ban"]:
                 wait["wblacklist"] = True
@@ -2617,6 +2570,7 @@ thread2 = threading.Thread(target=autolike)
 thread2.daemon = True
 thread2.start()
 while True:
+
     try:
         Ops = cl.fetchOps(cl.Poll.rev, 5)
     except EOFError:
