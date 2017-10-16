@@ -130,10 +130,10 @@ wait = {
     "wblack":False,
     "dblack":False,
     "clock":False,
-    "cName":" ",
-    "cName2":" ",
-    "cName3":" ",
-    "cName4":" ",
+    "cName":"Satia ",
+    "cName2":"Pasa ",
+    "cName3":"Tasya ",
+    "cName4":"Acha ",
     "cName5":" ",
     "cName6":" ",
     "cName7":" ",
@@ -344,10 +344,10 @@ def bot(op):
             cb.text = cl.getContact(op.param2).displayName + " Selamat Datang di " + group.name
             cl.sendMessage(cb)
 
-        if op.type == 17:
-                if op.param2 not in Bots:
-                    if op.param2 not in admin:
-                        random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+        #if op.type == 17:
+                #if op.param2 not in Bots:
+                    #if op.param2 not in admin:
+                        #random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
 
         if op.type == 19:
                 if op.param2 not in Bots:
@@ -1258,7 +1258,7 @@ def bot(op):
                 msg.contentType = 13
                 msg.contentMetadata = {"mid":mmid}
                 cl.sendMessage(msg)
-            elif msg.text in ["Join on","joinn on"]:
+            elif msg.text in ["Joinn on"]:
               if msg.from_ in admin:
                 if wait["Protectjoin"] == True:
                     if wait["lang"] == "JP":
@@ -1271,7 +1271,7 @@ def bot(op):
                         cl.sendText(msg.to,"kick Joined Group On")
                     else:
                         cl.sendText(msg.to,"done")
-            elif msg.text in ["Join off","joinn off"]:
+            elif msg.text in ["Joinn off"]:
               if msg.from_ in admin:
                 if wait["Protectjoin"] == False:
                     if wait["lang"] == "JP":
@@ -1496,11 +1496,11 @@ def bot(op):
                         cl.sendText(msg.to,"è¦äº†å…³æ–­ã€‚")
             elif msg.text in ["Set"]:
                 md = ""
-                if wait["protect"] == True: md+=" ✈Protect : on\n"
+                if wait["protect"] == True: md+=" lock  Protect : on\n"
                 else: md+=" ✈Protect : off\n"
-                if wait["protectinv"] == True: md+=" ✈Protectinv : on\n"
+                if wait["protectinv"] == True: md+="lock  Protectinv : on\n"
                 else: md+=" ✈Protectinv : off\n"
-                if wait["protectqr"] == True: md+=" ✈Protectqr : on\n"
+                if wait["protectqr"] == True: md+="lock  Protectqr : on\n"
                 else: md+=" ✈Protectqr : off\n"
                 if wait["Protectjoin"] == True: md+="􀔃􀆑lock􏿿  Block Join\n"
                 else: md+=" ✈Block Join Off\n"
@@ -2229,7 +2229,7 @@ def bot(op):
                 #msg.contentMetadata = {'mid': Fmid}
                 #kf.sendMessage(msg)
                 print "[Command]Bot all executed"
-            elif msg.text in ["Absen","All name"]:
+            elif msg.text in ["Responsename","All name"]:
                 G = ki.getProfile()
                 X = G.displayName
                 Y = kk.getProfile()
@@ -2445,7 +2445,7 @@ def bot(op):
                 h = ""
                 for i in gid:
                     h += "[~] [%s]:\n" % (cl.getGroup(i).name)
-                cl.sendText(msg.to,"======[List Grup]======\n"+ h +"Total Group :" +str(len(gid)))
+                cl.sendText(msg.to,"🔯List Group🔯\n"+ h +"Total Group :" +str(len(gid)))
         
         if op.type == 55:
             try:
