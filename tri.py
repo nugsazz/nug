@@ -6,8 +6,20 @@ from datetime import datetime
 import time,random,sys,json,codecs,threading,glob
 
 cl = LINETCR.LINE()
-cl.login(qr=True)
+cl.login(Token="ElBd2ol1bsuBQyWWeHSc.XY452mjSS6Rk1saEBYW0Ja.sOGfPYLv8Xc0MDO7Yxfi3LiYaSGNm7NEy/YDt9HtYgU=")
 cl.loginResult()
+
+ki = LINETCR.LINE()
+ki.login(Token="ElGX6BUADNVJ34BUgPSe.CjIvA0vExq5yWKKZhGRiBG.ImlX5KOJOTuOO4QdXjGX3H9yeNQm1XNOgo9nPyaqLrQ=")
+ki.loginResult()
+
+ki2 = LINETCR.LINE()
+ki2.login(Token=" Elm7mJ15RREhEgultEsb.aLwPgOKbGeyEw+S09eD8gW.PAv1+C3AWMyiZ26WVz4Sn1OuQsL9dL6GG3VaQg5/8hs=")
+ki2.loginResult()
+
+ki3 = LINETCR.LINE()
+ki3.login(Token="Elpakezaog4QxedzyeYd.EMlKHJ3BG3iVuingOKK0Zq.Y5YdE0EQhGWdnxOKuHa8OqAYrxua+rZz/j1R3T1zYqY=")
+ki3.loginResult()
 
 print "login success"
 reload(sys)
@@ -56,7 +68,7 @@ helpMessage ="""=====[S̷̶̷̶̷̰̰̰̰̰̰̃̃̃̃̃̃̃̃̃̃̃̃Ã̷̰̃̃
 ☫[Protect 「On/Off」]
 ☫[Qr 「On/Off」]
 ☫[Cancel 「On/Off」]
-☫[Invite 「On/Off」]
+☫[Invit 「On/Off」]
 ☫[Ginfo]
 ☫[Backup]
 ☫[Sayang]
@@ -287,65 +299,65 @@ def bot(op):
                 cl.sendMessage(msg)
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': ki3mid}
+                #cl.sendMessage(msg)
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki4mid}
+                #cl.sendMessage(msg)
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki5mid}
+                #cl.sendMessage(msg)
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki6mid}
+                #cl.sendMessage(msg)
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki7mid}
+                #cl.sendMessage(msg)
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki8mid}
+                #cl.sendMessage(msg)
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki9mid}
+                #cl.sendMessage(msg)
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki10mid}
+                #cl.sendMessage(msg)
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki11mid}
+                #cl.sendMessage(msg)
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki12mid}
+                #cl.sendMessage(msg)
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki13mid}
+                #cl.sendMessage(msg)
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki14mid}
+                #cl.sendMessage(msg)
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki15mid}
+                #cl.sendMessage(msg)
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki16mid}
+                #cl.sendMessage(msg)
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki17mid}
+                #cl.sendMessage(msg)
+                #msg.contentType = 13
+                #msg.contentMetadata = {'mid': ki18mid}
                 cl.sendMessage(msg)
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki4mid}
-                cl.sendMessage(msg)
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki5mid}
-                cl.sendMessage(msg)
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki6mid}
-                cl.sendMessage(msg)
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki7mid}
-                cl.sendMessage(msg)
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki8mid}
-                cl.sendMessage(msg)
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki9mid}
-                cl.sendMessage(msg)
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki10mid}
-                cl.sendMessage(msg)
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki11mid}
-                cl.sendMessage(msg)
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki12mid}
-                cl.sendMessage(msg)
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki13mid}
-                cl.sendMessage(msg)
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki14mid}
-                cl.sendMessage(msg)
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki15mid}
-                cl.sendMessage(msg)
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki16mid}
-                cl.sendMessage(msg)
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki17mid}
-                cl.sendMessage(msg)
-                msg.contentType = 13
-                msg.contentMetadata = {'mid': ki18mid}
-                cl.sendMessage(msg)
-            elif msg.text.lower() == 'dit':
+            elif msg.text.lower() == 'me':
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': mid}
                 cl.sendMessage(msg)
-            elif msg.text.lower() == 'kb':
+            elif msg.text.lower() == 'sf':
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': kimid}
                 ki.sendMessage(msg)
-            elif msg.text.lower() == 'kb2':
+            elif msg.text.lower() == 'sf2':
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': ki2mid}
                 ki2.sendMessage(msg)
-            elif msg.text.lower() == 'kb3':
+            elif msg.text.lower() == 'sf3':
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': ki3mid}
                 ki3.sendMessage(msg)
@@ -439,7 +451,7 @@ def bot(op):
                 cl.sendMessage(msg)
                 cl.sendMessage(msg)
                 cl.sendMessage(msg)
-            elif msg.text.lower() == 'thx':
+            elif msg.text.lower() == 'tanks':
                 msg.contentType = 7
                 msg.text = None
                 msg.contentMetadata = {
@@ -459,7 +471,7 @@ def bot(op):
                 cl.sendMessage(msg)
                 cl.sendMessage(msg)
                 cl.sendMessage(msg)
-            elif msg.text.lower() == 'tidak':
+            elif msg.text.lower() == 'sue':
                 msg.contentType = 7
                 msg.text = None
                 msg.contentMetadata = {
@@ -535,7 +547,7 @@ def bot(op):
                                     'STKPKGID': '1319678'}
                 msg.text = None
                 cl.sendMessage(msg)
-            elif msg.text.lower() == 'mukineko':
+            elif msg.text.lower() == 'kojom':
                 msg.contentType = 9
                 msg.contentMetadata={'PRDTYPE': 'STICKER',
                                     'STKVER': '1',
@@ -543,7 +555,7 @@ def bot(op):
                                     'STKPKGID': '1300191'}
                 msg.text = None
                 cl.sendMessage(msg)
-            elif msg.text.lower() == 'chino':
+            elif msg.text.lower() == 'njiir':
                 msg.contentType = 9
                 msg.contentMetadata={'PRDTYPE': 'STICKER',
                                     'STKVER': '1',
@@ -638,11 +650,11 @@ def bot(op):
                 cl.sendMessage(msg)
             elif msg.text.lower() == 'mid':
                 cl.sendText(msg.to,mid)
-            elif msg.text.lower() == 'Sb mid':
+            elif msg.text.lower() == 'sf mid':
                 ki.sendText(msg.to,kimid)
-            elif msg.text.lower() == 'Sb2 mid':
+            elif msg.text.lower() == 'sf2 mid':
                 ki2.sendText(msg.to,ki2mid)
-            elif msg.text.lower() == 'Sb3 mid':
+            elif msg.text.lower() == 'sf3 mid':
                 ki3.sendText(msg.to,ki3mid)
             elif msg.text.lower() == 'kb4 mid':
                 ki4.sendText(msg.to,ki4mid)
@@ -819,7 +831,7 @@ def bot(op):
                     profile.statusMessage = string
                     ki18.updateProfile(profile)
                     cl.sendText(msg.to,"Bio berubah menjadi " + string + "")
-                if msg.text == "set":
+                if msg.text == "Sider":
                     sendMessage(msg.to, "I have set a read point ♪\n「tes」I will show you who I have read ♪")
                     try:
                         del wait['readPoint'][msg.to]
@@ -1212,7 +1224,7 @@ def bot(op):
                         cl.sendText(msg.to,"Share set to off")
                     else:
                         cl.sendText(msg.to,"Share already off")
-            elif msg.text.lower() == 'Set':
+            elif msg.text.lower() == 'set':
                 md = ""
                 if wait["contact"] == True: md+="􀠁􀆩􏿿 ✈Contact:on 􀜁􀄯􏿿\n"
                 else: md+="􀠁􀆩􏿿 ✈Contact:off􀜁􀄰􏿿\n"
@@ -1330,7 +1342,7 @@ def bot(op):
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': ki18mid}
                 ki18.sendMessage(msg)
-            elif msg.text.lower() == 'kb out':
+            elif msg.text.lower() == 'sb out':
                 gid = cl.getGroupIdsJoined()
                 gid = ki.getGroupIdsJoined()
                 gid = ki2.getGroupIdsJoined()
@@ -1993,7 +2005,7 @@ def bot(op):
 #-----------------------------------------------
 
 #-----------------------------------------------
-            elif msg.text.lower() == 'Sayang':
+            elif msg.text.lower() == 'sayang':
                         G = cl.getGroup(msg.to)
                         ginfo = cl.getGroup(msg.to)
                         G.preventJoinByTicket = False
@@ -2045,7 +2057,7 @@ def bot(op):
                         random.choice(KAC).updateGroup(G)
                        
 #-----------------------------------------------
-            elif msg.text.lower() == 'Backup':
+            elif msg.text.lower() == 'backup':
                         G = cl.getGroup(msg.to)
                         ginfo = cl.getGroup(msg.to)
                         G.preventJoinByTicket = False
@@ -2082,7 +2094,7 @@ def bot(op):
                         G.preventJoinByTicket(G)
                         ki.updateGroup(G)
 #-----------------------------------------------
-            elif "Say1 in" in msg.text:
+            elif "Sb1 in" in msg.text:
                         G = cl.getGroup(msg.to)
                         ginfo = cl.getGroup(msg.to)
                         G.preventJoinByTicket = False
@@ -2098,7 +2110,7 @@ def bot(op):
                         G.preventJoinByTicket(G)
                         ki.updateGroup(G)
 #-----------------------------------------------
-            elif "Say2 in" in msg.text:
+            elif "Sb2 in" in msg.text:
                         G = cl.getGroup(msg.to)
                         ginfo = cl.getGroup(msg.to)
                         G.preventJoinByTicket = False
@@ -2114,7 +2126,7 @@ def bot(op):
                         G.preventJoinByTicket(G)
                         ki2.updateGroup(G)
 #-----------------------------------------------
-            elif "Say3 in" in msg.text:
+            elif "Sb3 in" in msg.text:
                         G = cl.getGroup(msg.to)
                         ginfo = cl.getGroup(msg.to)
                         G.preventJoinByTicket = False
@@ -2396,26 +2408,29 @@ def bot(op):
                     except:
                         pass
 #-----------------------------------------------
-            elif "ST1 bye" in msg.text:
+            elif "Sf1 bye" in msg.text:
                 if msg.toType == 2:
                     ginfo = cl.getGroup(msg.to)
                     try:
+                        ki.sendText(msg.to,"􀠁􀆩􏿿Bye Bye "  +  str(ginfo.name)  + "")
                         ki.leaveGroup(msg.to)
                     except:
                         pass
 #-----------------------------------------------
-            elif "ST2 bye" in msg.text:
+            elif "Sf2 bye" in msg.text:
                 if msg.toType == 2:
                     ginfo = cl.getGroup(msg.to)
                     try:
+                        ki2.sendText(msg.to,"􀠁􀆩􏿿Bye Bye "  +  str(ginfo.name)  + "")
                         ki2.leaveGroup(msg.to)
                     except:
                         pass
 #-----------------------------------------------
-            elif "ST3 bye" in msg.text:
+            elif "Sf3 bye" in msg.text:
                 if msg.toType == 2:
                     ginfo = cl.getGroup(msg.to)
                     try:
+                        ki3.sendText(msg.to,"􀠁􀆩􏿿Bye Bye "  +  str(ginfo.name)  + "")
                         ki3.leaveGroup(msg.to)
                     except:
                         pass
@@ -2541,7 +2556,7 @@ def bot(op):
                     except:
                         pass
 #-----------------------------------------------
-            elif "SB Key" in msg.text:
+            elif "Sf Key" in msg.text:
                 ki.sendText(msg.to,"""      􀠁􀆩􏿿􀠁􀆩􏿿 SATRIA BOT [SB] 􀠁􀆩􏿿􀠁􀆩􏿿  \n\n 􀠁􀆩􏿿 key Only Kicker 􀠁􀆩􏿿 \n\n􀠁􀆩􏿿[sb1 in]\n􀠁􀆩􏿿[1name:]\n􀠁􀆩􏿿[B Cancel]\n􀠁􀆩􏿿[kick @]\n􀠁􀆩􏿿[Ban @]\n􀠁􀆩􏿿[kill]\n􀠁􀆩􏿿[BotChat]\n􀠁􀆩􏿿[Respons]\n􀠁􀆩􏿿[sb1 Gift]\n􀠁􀆩􏿿[sb1 bye]\n\n   
   
         
@@ -2552,7 +2567,7 @@ def bot(op):
 
 """)
 #-----------------------------------------------
-            elif msg.text.lower() == 'Welcome':
+            elif msg.text.lower() == 'welcome':
                 ginfo = cl.getGroup(msg.to)
                 cl.sendText(msg.to,"Selamat Datang Di Grup " + str(ginfo.name))
                 cl.sendText(msg.to,"Owner Grup " + str(ginfo.name) + " :\n" + ginfo.creator.displayName )
