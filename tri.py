@@ -6,19 +6,19 @@ from datetime import datetime
 import time,random,sys,json,codecs,threading,glob
 
 cl = LINETCR.LINE()
-cl.login(Token="ElBd2ol1bsuBQyWWeHSc.XY452mjSS6Rk1saEBYW0Ja.sOGfPYLv8Xc0MDO7Yxfi3LiYaSGNm7NEy/YDt9HtYgU=")
+cl.login(token="ElBd2ol1bsuBQyWWeHSc.XY452mjSS6Rk1saEBYW0Ja.sOGfPYLv8Xc0MDO7Yxfi3LiYaSGNm7NEy/YDt9HtYgU=")
 cl.loginResult()
 
 ki = LINETCR.LINE()
-ki.login(Token="ElGX6BUADNVJ34BUgPSe.CjIvA0vExq5yWKKZhGRiBG.ImlX5KOJOTuOO4QdXjGX3H9yeNQm1XNOgo9nPyaqLrQ=")
+ki.login(token="ElGX6BUADNVJ34BUgPSe.CjIvA0vExq5yWKKZhGRiBG.ImlX5KOJOTuOO4QdXjGX3H9yeNQm1XNOgo9nPyaqLrQ=")
 ki.loginResult()
 
 ki2 = LINETCR.LINE()
-ki2.login(Token=" Elm7mJ15RREhEgultEsb.aLwPgOKbGeyEw+S09eD8gW.PAv1+C3AWMyiZ26WVz4Sn1OuQsL9dL6GG3VaQg5/8hs=")
+ki2.login(token="Elm7mJ15RREhEgultEsb.aLwPgOKbGeyEw+S09eD8gW.PAv1+C3AWMyiZ26WVz4Sn1OuQsL9dL6GG3VaQg5/8hs=")
 ki2.loginResult()
 
 ki3 = LINETCR.LINE()
-ki3.login(Token="Elpakezaog4QxedzyeYd.EMlKHJ3BG3iVuingOKK0Zq.Y5YdE0EQhGWdnxOKuHa8OqAYrxua+rZz/j1R3T1zYqY=")
+ki3.login(token="Elpakezaog4QxedzyeYd.EMlKHJ3BG3iVuingOKK0Zq.Y5YdE0EQhGWdnxOKuHa8OqAYrxua+rZz/j1R3T1zYqY=")
 ki3.loginResult()
 
 print "login success"
@@ -155,7 +155,78 @@ def cms(string, commands): #/XXX, >XXX, ;XXX, ^XXX, %XXX, $XXX...
             if string ==command:
                 return True
     return False
-	
+
+
+wait2 = {
+    'readPoint':{},
+    'readMember':{},
+    'setTime':{},
+    'ROM':{}
+    }
+
+setTime = {}
+setTime = wait2['setTime']
+
+def mention(to,nama):
+    aa = ""
+    bb = ""
+    strt = int(12)
+    akh = int(12)
+    nm = nama
+    #print nm
+    for mm in nm:
+      akh = akh + 2
+      aa += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(mm)+"},"""
+      strt = strt + 6
+      akh = akh + 4
+      bb += "\xe2\x98\xbb @x \n"
+    aa = (aa[:int(len(aa)-1)])
+    msg = Message()
+    msg.to = to
+    msg.from_ = profile.mid
+    msg.text = "[MENTION]\n"+bb
+    msg.contentMetadata ={'MENTION':'{"MENTIONEES":['+aa+']}','EMTVER':'4'}
+    #print msg
+    try:
+       cl.sendMessage(msg)
+    except Exception as error:
+        print error
+#-----------------------------------------------#
+def sendMessage(to, text, contentMetadata={}, contentType=0):
+    mes = Message()
+    mes.to, mes.from_ = to, profile.mid
+    mes.text = text
+    mes.contentType, mes.contentMetadata = contentType, contentMetadata
+    if to not in messageReq:
+        messageReq[to] = -1
+    messageReq[to] += 1
+
+def NOTIFIED_ACCEPT_GROUP_INVITATION(op):
+    #print op
+    try:
+        cl.sendText(op.param1, cl.getContact(op.param2).displayName + "Selamat Datang😊\n " + group.name + "Salam Kenal Kak")
+    except Exception as e:
+        print e
+        print ("\n\nNOTIFIED_ACCEPT_GROUP_INVITATION\n\n")
+        return
+
+def NOTIFIED_KICKOUT_FROM_GROUP(op):
+    try:
+        cl.sendText(op.param1, cl.getContact(op.param3).displayName + " Jangan Main Kick!\n(/*´･ω･*\)")
+    except Exception as e:
+        print e
+        print ("\n\nNOTIFIED_KICKOUT_FROM_GROUP\n\n")
+        return
+
+def NOTIFIED_LEAVE_GROUP(op):
+    try:
+        cl.sendText(op.param1, cl.getContact(op.param2).displayName + " Papay\n(*´･ω･*)")
+        ki.sendText(msg,to,"Semoga Tenang Bagi yang Meninggalkan Grup 🏳️")
+    except Exception as e:
+        print e
+        print ("\n\nNOTIFIED_LEAVE_GROUP\n\n")
+        return
+#-----------------------------------------------	
 def bot(op):
     try:
         if op.type == 0:
@@ -184,6 +255,18 @@ def bot(op):
                     pass
                 else:
                     cl.cancelGroupInvitation(op.param1, matched_list)
+
+        if op.type == 15:
+            random.choice(KAC).sendText(op.param1, "Good Bye :)")
+            print op.param3 + "has left the group"
+
+        if op.type == 17:
+            group = cl.getGroup(op.param1)
+            cb = Message()
+            cb.to = op.param1
+            cb.text = cl.getContact(op.param2).displayName + " Selamat Datang di " + group.name
+            cl.sendMessage(cb)
+
         if op.type == 19:
             if mid in op.param3:
                 wait["blacklist"][op.param2] = True
@@ -547,7 +630,7 @@ def bot(op):
                                     'STKPKGID': '1319678'}
                 msg.text = None
                 cl.sendMessage(msg)
-            elif msg.text.lower() == 'kojom':
+            elif msg.text.lower() == 'gift':
                 msg.contentType = 9
                 msg.contentMetadata={'PRDTYPE': 'STICKER',
                                     'STKVER': '1',
@@ -555,7 +638,7 @@ def bot(op):
                                     'STKPKGID': '1300191'}
                 msg.text = None
                 cl.sendMessage(msg)
-            elif msg.text.lower() == 'njiir':
+            elif msg.text.lower() == 'hadiah':
                 msg.contentType = 9
                 msg.contentMetadata={'PRDTYPE': 'STICKER',
                                     'STKVER': '1',
@@ -1342,7 +1425,7 @@ def bot(op):
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': ki18mid}
                 ki18.sendMessage(msg)
-            elif msg.text.lower() == 'sb out':
+            elif msg.text.lower() == 'sf out':
                 gid = cl.getGroupIdsJoined()
                 gid = ki.getGroupIdsJoined()
                 gid = ki2.getGroupIdsJoined()
@@ -1859,59 +1942,65 @@ def bot(op):
                 profile = ki3.getProfile()
                 text = profile.displayName + ""
                 ki3.sendText(msg.to, text)
-                profile = ki4.getProfile()
-                text = profile.displayName + ""
-                ki4.sendText(msg.to, text)
-                profile = ki5.getProfile()
-                text = profile.displayName + ""
-                ki5.sendText(msg.to, text)
-                profile = ki6.getProfile()
-                text = profile.displayName + ""
-                ki6.sendText(msg.to, text)
-                profile = ki7.getProfile()
-                text = profile.displayName + ""
-                ki7.sendText(msg.to, text)
-                profile = ki8.getProfile()
-                text = profile.displayName + ""
-                ki8.sendText(msg.to, text)
-                profile = ki9.getProfile()
-                text = profile.displayName + ""
-                ki9.sendText(msg.to, text)
-                profile = ki10.getProfile()
-                text = profile.displayName + ""
-                ki10.sendText(msg.to, text)
-                profile = ki11.getProfile()
-                text = profile.displayName + ""
-                ki11.sendText(msg.to, text)
-                profile = ki12.getProfile()
-                text = profile.displayName + ""
-                ki12.sendText(msg.to, text)
-                profile = ki13.getProfile()
-                text = profile.displayName + ""
-                ki13.sendText(msg.to, text)
-                profile = ki14.getProfile()
-                text = profile.displayName + ""
-                ki14.sendText(msg.to, text)
-                profile = ki15.getProfile()
-                text = profile.displayName + ""
-                ki15.sendText(msg.to, text)
-                profile = ki16.getProfile()
-                text = profile.displayName + ""
-                ki16.sendText(msg.to, text)
-                profile = ki17.getProfile()
-                text = profile.displayName + ""
-                ki17.sendText(msg.to, text)
-                profile = ki18.getProfile()
-                text = profile.displayName + ""
-                ki18.sendText(msg.to, text)
+                #profile = ki4.getProfile()
+                #text = profile.displayName + ""
+                #ki4.sendText(msg.to, text)
+                #profile = ki5.getProfile()
+                #text = profile.displayName + ""
+                #ki5.sendText(msg.to, text)
+                #profile = ki6.getProfile()
+                #text = profile.displayName + ""
+                #ki6.sendText(msg.to, text)
+                #profile = ki7.getProfile()
+                #text = profile.displayName + ""
+                #ki7.sendText(msg.to, text)
+                #profile = ki8.getProfile()
+                #text = profile.displayName + ""
+                #ki8.sendText(msg.to, text)
+                #profile = ki9.getProfile()
+                #text = profile.displayName + ""
+                #ki9.sendText(msg.to, text)
+                #profile = ki10.getProfile()
+                #text = profile.displayName + ""
+                #ki10.sendText(msg.to, text)
+                #profile = ki11.getProfile()
+                #text = profile.displayName + ""
+                #ki11.sendText(msg.to, text)
+                #profile = ki12.getProfile()
+                #text = profile.displayName + ""
+                #ki12.sendText(msg.to, text)
+                #profile = ki13.getProfile()
+                #text = profile.displayName + ""
+                #ki13.sendText(msg.to, text)
+                #profile = ki14.getProfile()
+                #text = profile.displayName + ""
+                #ki14.sendText(msg.to, text)
+                #profile = ki15.getProfile()
+                #text = profile.displayName + ""
+                #ki15.sendText(msg.to, text)
+                #profile = ki16.getProfile()
+                #text = profile.displayName + ""
+                #ki16.sendText(msg.to, text)
+                #profile = ki17.getProfile()
+                #text = profile.displayName + ""
+                #ki17.sendText(msg.to, text)
+                #profile = ki18.getProfile()
+                #text = profile.displayName + ""
+                #ki18.sendText(msg.to, text)
 
 #-----------------------------------------------------------speed
             elif msg.text in ["Ban"]:
                 wait["wblacklist"] = True
                 cl.sendText(msg.to,"Send Contact")
+                ki.sendText(msg.to,"Send Contact")
+                ki2.sendText(msg.to,"Send Contact")
+                ki3.sendText(msg.to,"Send Contact")
             elif msg.text in ["Unban"]:
                 wait["dblacklist"] = True
                 cl.sendText(msg.to,"Send Contact")
+                ki.sendText(msg.to,"Send Contact")
+                ki2.sendText(msg.to,"Send Contact")
+                ki3.sendText(msg.to,"Send Contact")
             elif msg.text.lower() == 'mcheck':
                 if wait["blacklist"] == {}:
                     cl.sendText(msg.to,"􀠁􀆩􏿿 Nothing in the blacklist")
@@ -1919,7 +2008,7 @@ def bot(op):
                     cl.sendText(msg.to,"􀠁􀆩􏿿 following is a blacklist")
                     mc = ""
                     for mi_d in wait["blacklist"]:
-                        mc += ">" +cl.getContact(mi_d).displayName + "\n"
+                        mc += "☆" +cl.getContact(mi_d).displayName + "\n"
                     cl.sendText(msg.to,mc)
             elif cms(msg.text, ["Lurking","lurking"]):
                     if msg.to in wait['readPoint']:
@@ -1967,7 +2056,7 @@ def bot(op):
                         matched_list+=filter(lambda str: str == tag, gMembMids)
                     cocoa = ""
                     for mm in matched_list:
-                        cocoa += ">" +cl.getContact(mm).displayName + "\n"
+                        cocoa += "☆" +cl.getContact(mm).displayName + "\n"
                     cl.sendText(msg.to,cocoa + "Daftar Hitam")
             elif msg.text.lower() == 'kill':
                 if msg.toType == 2:
@@ -2555,6 +2644,30 @@ def bot(op):
                         cl.leaveGroup(msg.to)
                     except:
                         pass
+#-----------------------------------------------
+            elif msg.text in ["Cipok"]:
+              if msg.from_ in admin:	
+			    group = cl.getGroup(msg.to)
+			    nama = [contact.mid for contact in group.members]
+			    cb = ""
+			    cb2 = "" 
+			    strt = int(0)
+			    akh = int(0)
+			    for md in nama:
+			        akh = akh + int(6)
+			        cb += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(md)+"},"""
+			        strt = strt + int(7)
+			        akh = akh + 1
+			        cb2 += "@nrik \n"
+			    cb = (cb[:int(len(cb)-1)])
+			    msg.contentType = 0
+			    msg.text = cb2
+			    msg.contentMetadata ={'MENTION':'{"MENTIONEES":['+cb+']}','EMTVER':'4'}
+			    try:
+			        ki.sendMessage(msg)
+			    except Exception as error:
+			        print error
+                                                 
 #-----------------------------------------------
             elif "Sf Key" in msg.text:
                 ki.sendText(msg.to,"""      􀠁􀆩􏿿􀠁􀆩􏿿 SATRIA BOT [SB] 􀠁􀆩􏿿􀠁􀆩􏿿  \n\n 􀠁􀆩􏿿 key Only Kicker 􀠁􀆩􏿿 \n\n􀠁􀆩􏿿[sb1 in]\n􀠁􀆩􏿿[1name:]\n􀠁􀆩􏿿[B Cancel]\n􀠁􀆩􏿿[kick @]\n􀠁􀆩􏿿[Ban @]\n􀠁􀆩􏿿[kill]\n􀠁􀆩􏿿[BotChat]\n􀠁􀆩􏿿[Respons]\n􀠁􀆩􏿿[sb1 Gift]\n􀠁􀆩􏿿[sb1 bye]\n\n   
@@ -3663,6 +3776,24 @@ def a2():
         return False
     else:
         return True
+def autolike():
+     for zx in range(0,20):
+        hasil = cl.activity(limit=200)
+        if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
+          try:    
+            cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+            cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by Satria\n↔line.me/ti/p/~satria_hk")
+            kk.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+            kk.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like by Satria\n↔line.me/ti/p/~satria_hk")
+            print "Like"
+          except:
+            pass
+        else:
+            print "Already Liked"
+     time.sleep(500)
+thread2 = threading.Thread(target=autolike)
+thread2.daemon = True
+thread2.start()
 def nameUpdate():
     while True:
         try:
