@@ -33,6 +33,7 @@ ki3.loginResult()
 #ki6.login(token="")
 #ki6.loginResult()
 
+ki4 = ki5 = ki6 = cl
 print "login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -287,7 +288,7 @@ def bot(op):
                     cl.cancelGroupInvitation(op.param1, matched_list)
 
         if op.type == 15:
-random.choice(KAC).sendText(op.param1, "Good Bye :) Kakak")
+            random.choice(KAC).sendText(op.param1, "Good Bye :)")
             print op.param3 + "has left the group"
 
         if op.type == 17:
@@ -296,7 +297,6 @@ random.choice(KAC).sendText(op.param1, "Good Bye :) Kakak")
             cb.to = op.param1
             cb.text = cl.getContact(op.param2).displayName + " Selamat Datang di " + group.name
             cl.sendMessage(cb)
-
         if op.type == 19:
             if mid in op.param3:
                 wait["blacklist"][op.param2] = True
@@ -310,7 +310,7 @@ random.choice(KAC).sendText(op.param1, "Good Bye :) Kakak")
             msg = op.message
             if msg.toType == 0:
                 msg.to = msg.from_
-                if msg.from_ == "uc72e39d8c26cb3aacad5201e6f2c348c","ue67d2e1e8727e994169cec969817d084":
+                if msg.from_ == "uc72e39d8c26cb3aacad5201e6f2c348c":
                     if "join:" in msg.text:
                         list_ = msg.text.split(":")
                         try:
