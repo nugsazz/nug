@@ -287,17 +287,7 @@ def bot(op):
                     cl.cancelGroupInvitation(op.param1, matched_list)
 
         if op.type == 15:
-            group = cl.getGroup(op.param1)
-            cb = Message()
-            cb.to = op.param1
-            cb.text =
-cl.getContact(op.param2).displayName + " Papay\n(*´･ω･*)")
-            cl.swndMessage(cb)
-            #ki.sendText(msg,to,"Semoga Tenang Bagi yang Meninggalkan Grup 🏳️")
-            #except Exception as e:
-            #print e
-        #print ("\n\nNOTIFIED_LEAVE_GROUP\n\n")
-        #return          #random.choice(KAC).sendText(op.param1, "Good Bye :) Kakak")
+random.choice(KAC).sendText(op.param1, "Good Bye :) Kakak")
             print op.param3 + "has left the group"
 
         if op.type == 17:
