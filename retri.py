@@ -2546,55 +2546,7 @@ ki3.sendText(msg.to,"􀜁􀇔Hello🙌 "  +  str(ginfo.name)  + "")
                     pass
                 else:
                     cl.sendText(op.param1,str(wait["message"]))
-#------------------------------------------------
-            elif "Bc:grup " in msg.text:
-                 bctxt = msg.text.replace("Bc:grup ", "")
-                 n = cl.getGroupIdsJoined()
-                 for manusia in n:
-                      cl.sendText(manusia, (bctxt))
-            elif "Bc:ct " in msg.text:
-                 bctxt = msg.text.replace("Bc:ct ", "")
-                 t = cl.getAllContactIds()
-                 for manusia in t:
-                      cl.sendText(manusia, (bctxt)) 
-            elif "Grup bc " in msg.text:
-                bctxt = msg.text.replace("Grup bc ", "")
-                n = cl.getGroupIdsJoined()
-                for manusia in n:
-                    cl.sendText(manusia, [bctxt])
-            elif "Kontak bc " in msg.text:
-                bctxt = msg.text.replace("Kontak bc ", "")
-                t = cl.getAllContactIds()
-                for manusia in t:
-                    cl.sendText(manusia, [bctxt])
-            elif msg.text in ["Group id","ç¾¤çµ„å…¨id"]:
-                gid = cl.getGroupIdsJoined()
-                h = ""
-                for i in gid:
-                    h += "[%s]:%s\n" % (cl.getGroup(i).name,i)
-                cl.sendText(msg.to,h)
-#------------------------------------------------
-            elif msg.text in ["Groups"]:
-              if msg.from_ in admin:
-                gid = cl.getGroupIdsJoined()
-                h = ""
-                for i in gid:
-                    h += "[~] [%s]:\n" % (cl.getGroup(i).name)
-                cl.sendText(msg.to,"🔯List Group🔯\n"+ h +"Total Group :" +str(len(gid)))
 
-        if op.type == 55:
-            try:
-                if op.param1 in wait2['readPoint']:
-                    Name = cl.getContact(op.param2).displayName
-                    if Name in wait2['readMember'][op.param1]:
-                        pass
-                    else:
-                        wait2['readMember'][op.param1] += "\n・" + Name
-                        wait2['ROM'][op.param1][op.param2] = "・" + Name
-                else:
-                    cl.sendText
-            except:
-                pass
         if op.type == 59:
             print op
 
