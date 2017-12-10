@@ -17,7 +17,7 @@ kk = LINETCR.LINE()
 kk.login(qr=True)
 kk.loginResult()
 
-#kc = LINETCR.LINE()
+kc = LINETCR.LINE()
 #kc.login(token='ElIuGwl8nhpugeE6onqd.9pUhX45E7oBPdnzBTNba3q.N/Lhd8qPFB102ooO0BBzqkxQOl3XMwaZIGJWexKbs9E=')
 #kc.loginResult()
 
